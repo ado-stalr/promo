@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Creado</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <base target="_blank">
+</head>
+<body>
+    <header class='header'>
+        <a href="/" class="logo" id="logo" target="_self">Creado</a>
+        <a href="#" class="closeButton"></a>
+    </header>
+    <div class="wraper">
+        <canvas class="canvas_main" id='canvas' width="500" height="500">This content is not supported by your browser.</canvas>
+    </div>
+
+    <div class="navArrows ">
+        <a class="prev" href="/" id="prev">
+            <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                    <path id="arrow-left-4" d="M15.946 48l0.003-10.33 47.411 0.003v-11.37h-47.414l0.003-10.304-15.309 16z"></path>
+                </svg>
+            </span>
+            <h3>Prev slide</h3>
+        </a>
+        <a class="next" href="/" id="next">
+            <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                    <path id="arrow-right-4" d="M48.058 48l-0.003-10.33-47.414 0.003v-11.37h47.418l-0.003-10.304 15.306 16z"></path>
+                </svg>
+            </span>
+            <h3>Next slide</h3>
+        </a>
+    </div>
+
+    <div class="slidesWrapper">
+        <div class="slide num1">
+            <div class="slideContent">
+                <div class="contentWrapper">
+                    <h2>Hi, I'm Creado</h2>
+                    <p>Welcome to my portfolio. I’m a freelance creative web developer from Yoshkar-Ola.</p>
+                    <p>I use Html5, CSS3 and Javascript to create high-end interactive website and application.</p>
+                    <p><b>5 years</b> of product development at
+                        <br><img src="img/ispringIcon.png" alt="ispring_logo" class="ispringIcon"> <b>iSpring</b>
+                    </p>
+                    <p>Previously research assistant, teacher and PhD student.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide num2">
+            <div class="slideContent">
+                <div class="contentWrapper">
+                    <h2>Skills and tools</h2>
+                    <p>HTML5/CSS3</p>
+                    <p>JavaScript/Typescript</p>
+                    <p>React/Reatom/Redux</p>
+                    <p>PHP</p>
+                    <p>3DsMax/Inventor</p>
+                    <p class="hint hint no-offset">after read go to the next slide</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide num3">
+            <div class="slideContent">
+                <div class="contentWrapper">
+                    <h2>Library</h2>
+                    <p class="hint">to interact with books click on one</p>
+                    <div class="labraryIcon">
+                        <div class="container">
+                            <img src="img/libraryIcon.png" alt="">
+                        </div>
+                    </div>
+                    <p class="hint">after interact go to the next slide</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide num4">
+            <div class="slideContent">
+                <div class="contentWrapper">
+                    <h2>Works</h2>
+                    <div class="worksList">
+                        <p>My works examples:</p>
+                        <a target="_blank" data-link="ispringRoll" href="https://space2.ispring.ru/app/preview/7a18e567-01a0-11f1-a32e-66e68999d906" class="blink">iSpring Roll preview</a>
+                        <a target="_blank" data-link="promoPage" href="works/promoPage/">Adaptive minipage</a>
+                        <a target="_blank" data-link="barbershop" href="works/barbershop/">Barbershop site</a>
+                    </div>
+                    <p class="hint">after interact go to the next slide</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide num5">
+            <div class="slideContent">
+                <div class="contentWrapper">
+                    <h2>Goals</h2>
+                    <p>Pay attention<br>to the board</p>
+                    <p class="hint no-offset">after read go to the next slide</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide num6">
+            <div class="slideContent">
+                <div class="contentWrapper">
+                    <h2>Contacts</h2>
+                    <div class="contactsList">
+                        <a class="blink" data-link="email" href="mailto:ado-stalr@mail.ru">Write me</a>
+                        <a class="blink" data-link="telegram" href="https://t.me/ado_stalr">Call me</a>
+                        <a class="blink" data-link="codewars" href="https://www.codewars.com/users/creADo">Battle me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menuWrapper" id="menu">
+        <div class="menuItems">
+            <a class="aboutMe">About me</a>
+            <a class="skills">Skills and tools</a>
+            <a class="library">Library</a>
+            <a class="works">Works</a>
+            <a class="goals">Goals</a>
+            <a class="contacts">Contacts</a>
+        </div>
+    </div>
+
+    <div class="loaderWrapper" id="loaderWrapper">
+        <div class="loader">
+            <h1 class="loaderTitle">Loading...</h1>
+            <div class="loaderBar" id="loaderBar">
+                <span class="overflowLoading">
+                    <span class="loadingBackground">
+                        <span class="loadingInner" id="enteringButton">
+                            <span class="entering" id="enteringButtonText"></span>
+                        </span>
+                    </span>
+                    <span class="loading" id="loaderBarLoading"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a class="navigation" id="navigationMenu" target="_self">Menu</a>
+        <div class="settings">
+            <div class="settingsItem sound active" id='soundIcon'></div>
+            <div class="settingsItem shadows" id="shadowIcon"></div>
+        </div>
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/MTLLoader.js"></script>
+    <script src="js/EffectComposer.js"></script>
+    <script src="js/CopyShader.js"></script>
+    <script src="js/DigitalGlitch.js"></script>
+    <script src="js/GlitchPass.js"></script>
+    <script src="js/RenderPass.js"></script>
+    <script src="js/ShaderPass.js"></script>
+    <script src="js/dat.gui.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/app.min.js"></script>
+</body>
+</html>

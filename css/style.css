@@ -1,0 +1,669 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dg.ac
+{
+    z-index: 501 !important;
+}
+
+h2, p
+{
+    cursor: default;
+}
+
+body
+{
+    background-color: #18171C;
+    font-size: 0;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#canvas
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    padding: 20px 60px 40px;
+    width: 100%;
+    background: rgb(52,50,60);
+    background: linear-gradient(180deg, rgba(52,50,60,0.8) 0%, rgba(255,255,255,0) 100%);
+}
+
+.header a
+{
+    text-decoration: none;
+}
+
+.header .logo
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    color: #ffffff;
+    transition: color 0.5s ease 0.1s;
+}
+
+.header .closeButton
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.footer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 500;
+    left: 0;
+    bottom: 0;
+    padding: 40px 5% 20px;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(52,50,60,0.8) 0%, rgba(255,255,255,0) 100%);
+}
+
+.settings
+{
+    display: flex;
+}
+
+.settingsItem
+{
+    height: 64px;
+    width: 64px;
+    border-radius: 5px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.settingsItem:hover
+{
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+#soundIcon
+{
+    background-position: 0 64px;
+    background-image: url(../img/soundIcon.png);
+    transition: 0.5s background-position ease 0.2s,
+                0.5s background-color ease 0.2s;
+}
+
+#soundIcon.active
+{
+    background-position: 0 0;
+}
+
+#shadowIcon
+{
+    background-position: 0 0;
+    background-image: url(../img/shadowIcon.png);
+    transition: 0.5s background-position ease 0.2s,
+                0.5s background-color ease 0.2s;
+}
+
+#shadowIcon.active
+{
+    background-position: 0 64px;
+}
+
+.navigation
+{
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s background-color ease 0.2s;
+}
+
+.navigation:hover
+{
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.loaderWrapper
+{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(24, 23, 28, 1);
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.loaderWrapper.loaded
+{
+    pointer-events: all;
+    background-color: rgba(24, 23, 28, 0.90);
+    transition: background-color 1s ease;
+}
+
+.loader
+{
+    width: 20%;
+}
+
+.loaderBar
+{
+    position: relative;
+    height: 50px;
+    min-width: 230px;
+}
+
+.loaderTitle
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #ffffff;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.overflowLoading
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 38px;
+    padding-right: 80px;
+    overflow: hidden;
+}
+
+.loadingInner
+{
+    background: #ffe600;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform .5s cubic-bezier(.75,0,.25,1);
+    will-change: transform;
+    text-align: center;
+    border: solid 2px #e2cc00;
+}
+
+.loadingInner:hover
+{
+    background: #e2cc00;
+    cursor: pointer;
+}
+
+
+#enteringButtonText
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading
+{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: calc(100% - 10px);
+    height: 100%;
+    background: #34323c;
+    transition: transform 0.5s cubic-bezier(.75,0,.25,1);
+    will-change: transform;
+}
+
+.menuWrapper
+{
+    padding-right: 20%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: -100%;
+    z-index: 100;
+    background-color: rgba(24, 23, 28, 0.86);
+    width: 100%;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    transition: left 0.6s ease-out;
+}
+
+.menuWrapper.isActive
+{
+    left: 0;
+}
+
+.menuItems a
+{
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 30px 0;
+    border-radius: 5px;
+    transition: 0.3s background-color ease 0.1s;
+}
+
+.menuItems a:hover
+{
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.slidesWrapper
+{
+    position: fixed;
+    top: 110px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: calc(100vh - 200px);
+    padding-left: 10%;
+    transition: 0.3s opacity ease 0.1s;
+}
+
+.slidesWrapper.muted
+{
+    opacity: 0.5;
+}
+
+.slide
+{
+    display: none;
+    height: 100%;
+}
+
+.slideContent
+{
+    padding: 10px 250px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+.contentWrapper
+{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(52, 50, 60, 0.58);
+    border-radius: 5px;
+}
+
+.slideContent h2
+{
+    padding: 30px 30px;
+    font-weight: 400;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+}
+
+.slideContent p
+{
+    max-width: 600px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.slideContent .hint.no-offset
+{
+    padding-left: 10px;
+}
+
+.slideContent .hint
+{
+    padding: 0 10px 10px 30px;
+    max-width: 400px;
+    font-size: 16px;
+    color: #b2b2b2;
+}
+
+.contactsList, .worksList
+{
+    max-width: 600px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    padding: 20px;
+}
+
+.contactsList a, .worksList a
+{
+    display: block;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 10px;
+    font-size: 30px;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.58);
+    color: #ffffff;
+    transition: background-color 0.5s ease;
+}
+
+.worksList a.blink,
+.contactsList a.blink
+{
+    -webkit-animation: 1s linear 0s infinite alternate blinkBorderArrow;
+    -moz-animation: 1s linear 0s infinite alternate blinkBorderArrow;
+    -o-animation: 1s linear 0s infinite alternate blinkBorderArrow;
+    animation: 1s linear 0s infinite alternate blinkBorderArrow;
+}
+
+.contactsList a:hover, .worksList a:hover
+{
+    background-color: rgba(226, 204, 0, 0.79);
+}
+
+.ispringIcon
+{
+    vertical-align: text-top;
+}
+
+.labraryIcon
+{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.labraryIcon img
+{
+    animation: scalingAnimation 3s infinite;
+}
+
+.labraryIcon .container
+{
+    position: relative;
+}
+
+.labraryIcon .container:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    top: 40%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: pulseAnimation 1.5s infinite alternate;
+}
+
+.navArrows
+{
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.navArrows a.next
+{
+    right: 0;
+}
+
+a.next.blink
+{
+    -webkit-animation: 1s linear 0s infinite alternate blinkBorderArrow;
+    -moz-animation: 1s linear 0s infinite alternate blinkBorderArrow;
+    -o-animation: 1s linear 0s infinite alternate blinkBorderArrow;
+    animation: 1s linear 0s infinite alternate blinkBorderArrow;
+}
+
+a.next.blink:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    animation: pulseAnimation 2s infinite;
+}
+
+a.next.blink svg
+{
+    -webkit-animation: 1s linear 0s infinite alternate blinkArrow;
+    -moz-animation: 1s linear 0s infinite alternate blinkArrow;
+    -o-animation: 1s linear 0s infinite alternate blinkArrow;
+    animation: 1s linear 0s infinite alternate blinkArrow;
+}
+
+a.next.blink h3
+{
+    line-height: 1.8;
+}
+
+.navArrows a.prev {
+    left: 0;
+}
+
+.navArrows a
+{
+    position: absolute;
+    top: 50vh;
+    display: block;
+    outline: none;
+    text-align: left;
+    z-index: 1000;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 20px;
+    padding: 15px;
+    width: 62px;
+    height: 62px;
+    border-radius: 5px;
+    background: rgba(79, 77, 80, 0.73);
+    -webkit-transition: width 0.3s, background-color 0.3s;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.navArrows a.hidden
+{
+    display: none;
+}
+
+.navArrows .icon-wrap
+{
+    position: absolute;
+    width: 32px;
+}
+
+.navArrows a.prev .icon-wrap
+{
+    left: 15px;
+}
+
+.navArrows a.next .icon-wrap
+{
+    right: 15px;
+}
+
+a.next.blink .icon-wrap
+{
+    top: 13px;
+    right: 13px;
+}
+
+.navArrows svg.icon
+{
+    fill: #928fa6;
+}
+
+.navArrows h3 {
+    position: absolute;
+    margin: 0;
+    color: #ffe600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    line-height: 2;
+    font-weight: 400;
+    font-size: 0.85em;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+}
+
+.navArrows a.prev h3 {
+    right: 20px;
+}
+
+.navArrows a.next h3 {
+    left: 20px;
+}
+
+.navArrows a:hover {
+    width: 200px;
+    background: rgba(95, 95, 95, 0.38);
+}
+
+.navArrows a:hover h3 {
+    opacity: 1;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.navArrows a:hover svg.icon {
+    fill: #ffffff;
+}
+
+.num2 h2, .num1 h2
+{
+    color: #ffe600;
+}
+
+@-webkit-keyframes blinkBorderArrow
+{
+    from { border: 2px solid #4a4545; } to { border: 2px solid #ffe600; }
+}
+@-moz-keyframes blinkBorderArrow
+{
+    from { border: 2px solid #4a4545; } to { border: 2px solid #ffe600; }
+}
+@-o-keyframes blinkBorderArrow
+{
+    from { border: 2px solid #4a4545; } to { border: 2px solid #ffe600; }
+}
+@keyframes blinkBorderArrow
+{
+    from { border: 2px solid #4a4545;  } to { border: 2px solid #ffe600; }
+}
+
+@-webkit-keyframes blinkArrow
+{
+    from { fill: #928fa6 } to { fill: #ffe600; }
+}
+@-moz-keyframes blinkArrow
+{
+    from { fill: #928fa6 } to { fill: #ffe600; }
+}
+@-o-keyframes blinkArrow
+{
+    from { fill: #928fa6 } to { fill: #ffe600; }
+}
+@keyframes blinkArrow
+{
+    from { fill: #928fa6 } to { fill: #ffe600; }
+}
+
+@-webkit-keyframes pulseAnimation
+{
+    0% {box-shadow: 0 0 0 0 rgba(255, 230, 0, 0); }
+    100% {box-shadow: 0 0 0 20px rgba(255, 230, 0, 0.04); }
+}
+@-moz-keyframes pulseAnimation
+{
+    0% {box-shadow: 0 0 0 0 rgba(255, 230, 0, 0); }
+    100% {box-shadow: 0 0 0 20px rgba(255, 230, 0, 0.04); }
+}
+@-o-keyframes pulseAnimation
+{
+    0% {box-shadow: 0 0 0 0 rgba(255, 230, 0, 0); }
+    100% {box-shadow: 0 0 0 20px rgba(255, 230, 0, 0.04); }
+}
+@keyframes pulseAnimation
+{
+    0% {box-shadow: 0 0 0 0 rgba(255, 230, 0, 0); }
+    100% {box-shadow: 0 0 0 20px rgba(255, 230, 0, 0.04); }
+}
+
+@-webkit-keyframes scalingAnimation
+{
+    0% {-webkit-transform: scale(1); transform: scale(1); }
+    40% {-webkit-transform: scale(1.2); transform: scale(1.2); }
+    100% {-webkit-transform: scale(1); transform: scale(1); }
+}
+@-moz-keyframes scalingAnimation
+{
+    0% {-webkit-transform: scale(1); transform: scale(1); }
+    40% {-webkit-transform: scale(1.2); transform: scale(1.2); }
+    100% {-webkit-transform: scale(1); transform: scale(1); }
+}
+@-o-keyframes scalingAnimation
+{
+    0% {-webkit-transform: scale(1); transform: scale(1); }
+    40% {-webkit-transform: scale(1.2); transform: scale(1.2); }
+    100% {-webkit-transform: scale(1); transform: scale(1); }
+}
+@keyframes scalingAnimation
+{
+    0% {-webkit-transform: scale(1); transform: scale(1); }
+    40% {-webkit-transform: scale(1.2); transform: scale(1.2); }
+    100% {-webkit-transform: scale(1); transform: scale(1); }
+}
